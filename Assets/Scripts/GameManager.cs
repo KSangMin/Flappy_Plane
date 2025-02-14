@@ -25,5 +25,6 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.Restart();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         _score = 0;
+        UIManager.Instance.UpdateScore(_score);
     }
 }
