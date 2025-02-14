@@ -1373,8 +1373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9c65421394e53548a56256688ab4154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  restartText: {fileID: 0}
+  scoreText: {fileID: 1919788209}
+  restartText: {fileID: 1804366007}
 --- !u!114 &1007522885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3533,7 +3533,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click To Restart
+  m_text: Space To Restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
