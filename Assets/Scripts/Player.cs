@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Animator animator;
-    public Rigidbody2D rb;
+    private Animator _animator;
+    private Rigidbody2D _rb;
 
     public float jumpForce = 6f;
     public float speed = 3f;
-    public bool isDead = false;
-    float deathCool = 0f;
+    private bool _isDead = false;
+    private float _deathCool = 0f;
 
     bool isFlap = false;
 
@@ -18,15 +18,15 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
 
-        if (animator == null)
+        if (_animator == null)
         {
             Debug.LogError("Not Founded Animator");
         }
 
-        if (rb == null)
+        if (_rb == null)
         {
             Debug.LogError("Not Founded Rigidbody");
         }
@@ -34,11 +34,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (isDead)
+        if (_isDead)
         {
-            if(deathCool > 0f)
+            if(_deathCool > 0f)
             {
-                deathCool += Time.deltaTime;
+                _deathCool += Time.deltaTime;
             }
             else
             {
@@ -57,9 +57,9 @@ public class Player : MonoBehaviour
      
     private void FixedUpdate()
     {
-        if (isDead) return;
+        if (_isDead) return;
 
-        Vector3 velocity = rb.velocity;
+        Vector3 velocity = _rb.velocity;
         velocity.x = speed;
 
         if (isFlap)
@@ -68,20 +68,20 @@ public class Player : MonoBehaviour
             isFlap = false;
         }
 
-        rb.velocity = velocity;
+        _rb.velocity = velocity;
 
-        float angle = Mathf.Clamp(rb.velocity.y * 10f, -90, 90);
+        float angle = Mathf.Clamp(_rb.velocity.y * 10f, -90, 90);
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (godMode) return;
-        if (isDead) return;
+        if (_isDead) return;
 
-        isDead = true;
-        deathCool = 1f;
+        _isDead = true;
+        _deathCool = 1f;
 
-        animator.SetBool("isDead", true);
+        _animator.SetBool("isDead", true);
     }
 }
