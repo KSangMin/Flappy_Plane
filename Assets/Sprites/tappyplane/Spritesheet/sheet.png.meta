@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheet_0
+      name: ground
       rect:
         serializedVersion: 2
         x: 0
@@ -316,11 +316,11 @@ TextureImporter:
     nameFileIdTable:
       background: -1611644144
       bottom: -1177455389
+      ground: 1640679367
       plane_0: 829338224
       plane_1: 946313090
       plane_2: -1640784167
       plane_dead: 548962566
-      sheet_0: 1640679367
       top: 366326147
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
