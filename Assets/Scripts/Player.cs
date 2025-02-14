@@ -38,11 +38,14 @@ public class Player : MonoBehaviour
         {
             if(_deathCool > 0f)
             {
-                _deathCool += Time.deltaTime;
+                _deathCool -= Time.deltaTime;
             }
             else
             {
-                //게임 재시작
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(0))
+                {
+                    GameManager.Instance.RestartGame();
+                }
             }
         }
         else
@@ -83,5 +86,7 @@ public class Player : MonoBehaviour
         _deathCool = 1f;
 
         _animator.SetBool("isDead", true);
+
+        GameManager.Instance.GameOver();
     }
 }
